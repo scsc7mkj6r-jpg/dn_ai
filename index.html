@@ -130,5 +130,43 @@ function dnSend(e){
 </body>
 </html>
 
+<section id="order" style="padding:60px 7%;background:#0c2039;color:white">
+<h2>Заказать AI-решение</h2>
+<form id="orderForm" style="display:grid;gap:15px;max-width:500px;margin:auto">
+<input required name="name" placeholder="Ваше имя" style="padding:15px;border-radius:8px">
+<input required name="contact" placeholder="Телефон или Telegram" style="padding:15px;border-radius:8px">
+<select name="business" required style="padding:15px;border-radius:8px">
+<option value="">Тип бизнеса</option>
+<option>Магазин</option>
+<option>Салон красоты</option>
+<option>Кафе</option>
+<option>Автомойка</option>
+<option>Другое</option>
+</select>
+<select name="service" required style="padding:15px;border-radius:8px">
+<option value="">Выберите услугу</option>
+<option>AI Assistant</option>
+<option>AI Chatbot</option>
+<option>Business Automation</option>
+</select>
+<button type="submit" style="padding:15px;background:#2563eb;color:white;border:0;border-radius:8px;font-weight:bold">Отправить заявку</button>
+<p id="orderStatus"></p>
+</form>
+</section>
+<script>
+document.getElementById('orderForm').addEventListener('submit',function(e){
+e.preventDefault();
+const d=new FormData(this);
+const message='Новая заявка DN AI%0AИмя: '+encodeURIComponent(d.get('name'))+
+'%0AКонтакт: '+encodeURIComponent(d.get('contact'))+
+'%0AБизнес: '+encodeURIComponent(d.get('business'))+
+'%0AУслуга: '+encodeURIComponent(d.get('service'));
+document.getElementById('orderStatus').textContent='Заявка подготовлена. Откройте Telegram для отправки.';
+window.open('https://t.me/share/url?url=https://scsc7mkj6r-jpg.github.io/dn_ai/&text='+message,'_blank');
+});
+</script>
+</body>
+</html>
+
 </body>
 </html>
